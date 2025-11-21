@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: formhandling-deployment
+  labels:
+    app: formhandling
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: formhandling
+  template:
+    metadata:
+      labels:
+        app: formhandling
+    spec:
+      containers:
+        - name: formhandling
+          image: your-dockerhub-username/formhandling:latest
+          ports:
+            - containerPort: 80
